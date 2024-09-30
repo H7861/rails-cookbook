@@ -1,0 +1,28 @@
+<h1>Category Details</h1>
+
+<!-- Display the category name -->
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>  <!-- Show the name of the category -->
+</p>
+
+<!-- Check if there are any bookmarks in this category -->
+<% if @category.bookmarks.any? %>
+  <h2>Bookmarks in this Category</h2>
+  <ul>
+    <!-- Loop through each bookmark and display its details -->
+    <% @category.bookmarks.each do |bookmark| %>
+      <li>
+        <strong>Recipe:</strong> <%= bookmark.recipe.name %>  <!-- Show the recipe name -->
+        <%= link_to 'Show Recipe', recipe_path(bookmark.recipe) %>  <!-- Link to the recipe page -->
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No bookmarks available for this category.</p>  <!-- Message when there are no bookmarks -->
+<% end %>
+
+<!-- Links for navigation -->
+<div>
+  <%= link_to 'Edit Category', edit_category_path(@category) %> |  <!-- Link to edit the category -->
+  <%= link_to 'Back to Categories', categ
