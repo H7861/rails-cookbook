@@ -1,28 +1,21 @@
-<h1>Category Details</h1>
+<h1><%= @category.name %></h1>
 
-<!-- Display the category name -->
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>  <!-- Show the name of the category -->
-</p>
+<ul>
+  <% @category.bookmarks.each do |bookmark| %>
+  <li>
+    <h2><%= bookmark.recipe.name %> | </h2> <%= link_to "delete", bookmark_path(bookmark), data:
+    { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    <p><%= bookmark.recipe.description %></p>
 
-<!-- Check if there are any bookmarks in this category -->
-<% if @category.bookmarks.any? %>
-  <h2>Bookmarks in this Category</h2>
-  <ul>
-    <!-- Loop through each bookmark and display its details -->
-    <% @category.bookmarks.each do |bookmark| %>
-      <li>
-        <strong>Recipe:</strong> <%= bookmark.recipe.name %>  <!-- Show the recipe name -->
-        <%= link_to 'Show Recipe', recipe_path(bookmark.recipe) %>  <!-- Link to the recipe page -->
-      </li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No bookmarks available for this category.</p>  <!-- Message when there are no bookmarks -->
-<% end %>
+    <p>rating: <%= bookmark.recipe.rating %></p><%= bookmark.recipe.rating %>
+    <p><%= bookmark.comment %></p>
+  </li>
+  <% end %>
 
-<!-- Links for navigation -->
-<div>
-  <%= link_to 'Edit Category', edit_category_path(@category) %> |  <!-- Link to edit the category -->
-  <%= link_to 'Back to Categories', categ
+  <%= link_to "back to all categories", categories_path %>
+  <%= link_to "add a new recipe to your list", new_category_bookmark_path(@category) %>
+</ul>
+
+<%# back to the index page %>
+<%# link to add a new recipe (bookmark!) %>
+<%# add a new category %>

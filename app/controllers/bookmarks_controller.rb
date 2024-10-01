@@ -2,28 +2,28 @@ class BookmarksController < ApplicationController
   def new
     @category = Category.find(params[:category_id])
     @bookmark = Bookmark.new
-    @recipes = Recipe.all # Fetch all recipes to be added as bookmarks
   end
+
   def create
     @category = Category.find(params[:category_id])
-    @bookmark = @category.bookmarks.build(bookmark_params)
+    @bookmark = Bookmark.new(bookmark_params)
+    @bookmark.category = @category
     if @bookmark.save
-      redirect_to category_path(@category), notice: 'Recipe added to category.'
+      redirect_to category_path(@category)
     else
-      render :new
+      render :new, status: :unproccessable_entity
     end
+  end
+
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.destroy
+    redirect_to category_path(@bookmark.category), status: :see_other
   end
 
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:recipe_id)
+    params.require(:bookmark).permit(:recipe_id, :comment)
   end
-  def destroy
-    @bookmark = Bookmark.find(params[:id])
-    @bookmark.destroy
-    redirect_to category_path(params[:category_id]), notice: 'Recipe removed from category.'
-  end
-
-
 end
