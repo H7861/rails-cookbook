@@ -3,3 +3,105 @@
 @import "avatar";
 @import "form_legend_clear";
 @import "navbar";
+
+.banner {
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+}
+.container {
+  color: white;
+  font-weight: 700;
+  font-family: 'Work Sans';
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* background-size: cover; */
+  /* background-position: center; */
+}
+a.btn.btn-flat {
+  background-color: #000;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+}
+.cat-banner {
+  background: linear-gradient(135deg, #4d4847, #2d2a28);
+  /* width: 950px; */
+  /* border-radius: 10px; */
+  padding: 10px 20px;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  margin: 0px 0px 20px 0px;
+  /* top: 40px; */
+}
+
+.cat-banner h2 {
+  margin: 0; /* Removes default margin for a cleaner look */
+}
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  flex-direction: column;
+  width: 300px;
+}
+a.category-link {
+  text-decoration: none;
+  color: white;
+  box-shadow: black 2px;
+}
+li a:nth-of-type(2) {
+  background-color: black;
+  color: #dc3545;
+  /* border: 2px solid #007bff; */
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 11px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  /* transition: all 0.3s ease; */
+  margin: 0px 20px;
+}
+ul.category-list {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+}
+a.add-category-link {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: auto 0;
+  text-align: center;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
