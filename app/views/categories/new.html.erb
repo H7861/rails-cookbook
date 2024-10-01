@@ -1,11 +1,8 @@
-<h1>Which recipe would you like to add to your <%= @category.name %> list?</h1>
-<%= simple_form_for [@category, @bookmark] do |f| %>
-  <%= f.association :recipe %>
-  <%= f.input :comment %>
+<h1>Add a new category to your cookbook</h1>
 
-  <%= f.submit "add recipe" %>
+<%= simple_form_for(@category) do |f| %>
+  <%= f.input :name %>
+  <%= f.submit %>
 <% end %>
 
-<%# button to go back %>
-
-<%= link_to 'back', category_path(@category) %>
+<%= link_to 'back', categories_path %>

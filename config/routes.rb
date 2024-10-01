@@ -5,9 +5,19 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-    resources :categories, except: [:edit, :update] do
-      resources :bookmarks, only: [:new, :create, :destroy]
+  # Defines the root path route ("/")
+  # root "posts#index"
 
+  # get 'categories', to: 'categories#index'
+  # get 'categories/new', to: 'categories#new'
+  # get 'categories/:id', to: 'categories#show', as: :category
+  # post 'categories', to: 'categories#create'
+  # delete 'categories/:id', to: 'categories#destroy'
 
+  # get 'categories/:category_id/bookmarks/new', to: 'bookmarks#new'
+  root "catergories#index"
+  resources :categories, except: %i[edit update] do
+    resources :bookmarks, only: %i[new create show]
   end
+  resources :bookmarks, only: [:destroy]
 end
